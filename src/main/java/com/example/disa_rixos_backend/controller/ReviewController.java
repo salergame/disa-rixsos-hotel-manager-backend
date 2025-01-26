@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/reviews")
 public class ReviewController {
@@ -13,14 +15,14 @@ public class ReviewController {
     @Autowired
     private ReviewRepository reviewRepository;
 
-    @PostMapping
-    public ResponseEntity<?> leaveReview(@RequestBody Review review) {
-        reviewRepository.save(review);
-        return ResponseEntity.ok("Review saved successfully");
+    @GetMapping
+    public List<Review> getReviews() {
+        return reviewRepository.findAllByOrderByDateDesc();
     }
 
-    @GetMapping
-    public ResponseEntity<?> getAllReviews() {
-        return ResponseEntity.ok(reviewRepository.findAll());
+    @PostMapping
+    public ResponseEntity<?> addReview(@RequestBody Review review) {
+        reviewRepository.save(review);
+        return ResponseEntity.ok("Review added");
     }
 }

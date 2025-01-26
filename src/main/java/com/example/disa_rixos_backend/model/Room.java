@@ -1,7 +1,5 @@
 package com.example.disa_rixos_backend.model;
 
-import java.time.LocalDateTime;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,17 +10,16 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Review {
+public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String author;
-    private Integer rating;
-    private String content;
-    private Integer likes;
-    private LocalDateTime date = LocalDateTime.now();
+    private String type;
+    private String price;
+    private String description;
+    private String capacity;
+    private String image;
 
-    
     // Конструкторы, геттеры, сеттеры, toString
 }

@@ -26,6 +26,24 @@
 		<tag/>
 		<url/>
 	</scm>
+
+	<dependencyManagement>
+    	<dependencies>
+    		<dependency>
+        		<groupId>org.flywaydb</groupId>
+        		<artifactId>flyway-core</artifactId>
+        		<version>10.20.1</version>  <!-- Указываем нужную версию -->
+    		</dependency>
+
+			<dependency>
+    			<groupId>org.projectlombok</groupId>
+    			<artifactId>lombok</artifactId>
+    			<version>1.18.24</version> <!-- Убедитесь, что версия актуальна -->
+    			<scope>provided</scope>
+			</dependency>
+    	</dependencies>
+	</dependencyManagement>
+
 	<properties>
 		<java.version>23</java.version>
 	</properties>
